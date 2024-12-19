@@ -21,9 +21,9 @@ func resourceVpcProject() *schema.Resource {
 	return &schema.Resource{
 		Description: `Dynamic Cloud --- Manage Dynamic Cloud VPC Projects lifecycle
 
-This creates a Virtual Private Cloud (VPC) Project with the specified name and optionally the comment passed. The parameter ` + "`users`" + ` can be used to specify which user should get access to the VPC Project.
+This creates a Virtual Private Cloud (VPC) Project with the specified name and the optional comment. The parameter ` + "`users`" + ` can be used to specify which user should get access to the VPC Project.
 
-~> **Note:** Changing the ` + "`name` or `comment`" + ` will force the VPC Project to be recreated, i.e. all resources in the VPC Project will be deleted.`,
+!> Changing the ` + "`name` or `comment`" + ` will force the VPC Project to be recreated, i.e. all resources in the VPC Project will be deleted.`,
 		CreateContext: resourceVpcProjectCreate,
 		ReadContext:   resourceVpcProjectRead,
 		UpdateContext: resourceVpcProjectUpdate,
@@ -54,7 +54,7 @@ This creates a Virtual Private Cloud (VPC) Project with the specified name and o
 				Description: `The user defined name used to construct the OpenStack project name with the schema ` + "`tenant-name`.  " + `
 By changing this value, the old project will be deleted and a new project with the new name will be created.
 
-~> **WARNING:** Changing this value will delete all resources in the VPC Project.`,
+!> Changing this value will delete all resources in the VPC Project.`,
 				ValidateDiagFunc: validation.ToDiagFunc(validation.All(
 					validation.StringLenBetween(1, 41),
 					validation.StringMatch(nameRegex, "Name may only contain (a-zA-Zß0-9-_)."),
@@ -73,7 +73,7 @@ By changing this value, the old project will be deleted and a new project with t
 				Description: `A comment to describe what this VPC Project is used for.  
 By changing this value, the old project will be deleted and a new project will be created.
 
-~> **WARNING:** Changing this value will delete all resources in the VPC Project.`,
+!> Changing this value will delete all resources in the VPC Project.`,
 				ValidateDiagFunc: validation.ToDiagFunc(validation.StringMatch(commentRegex, "project_comment may only contain (a-zA-Zß0-9-_.,;:?!#+ ).")),
 			},
 			"tenant": {

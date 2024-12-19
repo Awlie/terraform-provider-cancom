@@ -3,17 +3,17 @@ page_title: "cancom_dynamic_cloud_vpc_project Resource - terraform-provider-canc
 subcategory: "Dynamic Cloud"
 description: |-
   Manage Dynamic Cloud VPC Projects lifecycle
-  This creates a Virtual Private Cloud (VPC) Project with the specified name and optionally the comment passed. The parameter users can be used to specify which user should get access to the VPC Project.
-  ~> Note: Changing the name or comment will force the VPC Project to be recreated, i.e. all resources in the VPC Project will be deleted.
+  This creates a Virtual Private Cloud (VPC) Project with the specified name and the optional comment. The parameter users can be used to specify which user should get access to the VPC Project.
+  !> Changing the name or comment will force the VPC Project to be recreated, i.e. all resources in the VPC Project will be deleted.
 ---
 
 # cancom_dynamic_cloud_vpc_project (Resource)
 
 Manage Dynamic Cloud VPC Projects lifecycle
 
-This creates a Virtual Private Cloud (VPC) Project with the specified name and optionally the comment passed. The parameter `users` can be used to specify which user should get access to the VPC Project.
+This creates a Virtual Private Cloud (VPC) Project with the specified name and the optional comment. The parameter `users` can be used to specify which user should get access to the VPC Project.
 
-~> **Note:** Changing the `name` or `comment` will force the VPC Project to be recreated, i.e. all resources in the VPC Project will be deleted.
+!> Changing the `name` or `comment` will force the VPC Project to be recreated, i.e. all resources in the VPC Project will be deleted.
 
 ## Example Usage
 
@@ -33,14 +33,14 @@ resource "cancom_dynamic_cloud_vpc_project" "basic_usage_example" {
 - `name` (String) The user defined name used to construct the OpenStack project name with the schema `tenant-name`.  
 By changing this value, the old project will be deleted and a new project with the new name will be created.
 
-~> **WARNING:** Changing this value will delete all resources in the VPC Project.
+!> Changing this value will delete all resources in the VPC Project.
 
 ### Optional
 
 - `project_comment` (String) A comment to describe what this VPC Project is used for.  
 By changing this value, the old project will be deleted and a new project will be created.
 
-~> **WARNING:** Changing this value will delete all resources in the VPC Project.
+!> Changing this value will delete all resources in the VPC Project.
 - `timeouts` (Block, Optional) (see [below for nested schema](#nestedblock--timeouts))
 - `users` (Set of String) The list of users with access to the VPC Project. The list may only contains CRNs of human iam users.
 
